@@ -1,4 +1,7 @@
 package com.coals.lesson01;
+// ±‚∫ª ∆–≈∞¡ˆ com.marobiana.ex ø°º≠ lesson01∑Œ ∫Ø∞Êµ«æÓ 404 πﬂª˝
+
+// º≥¡§ ≈¨∑°Ω∫ø°º≠ @ComponentScan¿∏∑Œ ±‚∫ª ∆–≈∞¡ˆ∏¶ ¥ŸΩ√ ¿‚æ∆¡ÿ¥Ÿ.
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,44 +12,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/lesson01/ex01")
-@RestController // @Controller + @ResponseBody : ?ç∞?ù¥?Ñ∞Î•? ?Ç¥Î¶? ?ïå Ï£ºÎ°ú ?Ç¨?ö©?ïú?ã§
+@RestController // @Controller + @ResponseBody
 public class Ex01RestController {
-
-	// ?öîÏ≤? url : http://localhost/lesson01/ex01/3
+	// ø‰√ª URL: http://localhost:8080/lesson01/ex01/3
 	@RequestMapping("/3")
 	public String printString() {
-		return "@RestControllerÎ•? ?Ç¨?ö©?ï¥?Ñú String?ùÑ Î¶¨ÌÑ¥?ï¥Î≥∏Îã§";
+		return "@RestController∏¶ ªÁøÎ«ÿ String¿ª ∏Æ≈œ«ÿ∫ª¥Ÿ.";
 	}
-	
+
+	// ø‰√ª URL: http://localhost:8080/lesson01/ex01/4
 	@RequestMapping("/4")
-	public Map<String, String> printMap(){
+	public Map<String, String> printMap() {
 		Map<String, String> map = new HashMap<>();
 		map.put("aaa", "111");
 		map.put("bbb", "222");
 		map.put("ccc", "333");
-		map.put("ddd", "444");
-		
 		return map; // json
 	}
 
+	// ø‰√ª URL: http://localhost:8080/lesson01/ex01/5
 	@RequestMapping("/5")
 	public Data printData() {
-		Data data = new Data(); // ?ùºÎ∞? ?ûêÎ∞? Îπ?
+		Data data = new Data(); // ¿œπ› ¿⁄πŸ bean
 		data.setId(1);
-		data.setName("?ôçÏ±ÑÎ??");
-		
-		System.out.println(data); // console
-		return data; // ?ùºÎ∞? Îπ? Í∞ùÏ≤¥?èÑ json?úºÎ°? ?Ç¥?†§Í∞ÑÎã§ (jacksom ?ùº?ù¥Î∏åÎü¨Î¶? ?ïåÎ¨∏Ïóê)
+		data.setName("»´√§πŒ");
+		return data; // ¿œπ› bean ∞¥√ºµµ JSON¿∏∑Œ ≥ª∑¡∞£¥Ÿ.
 	}
-	
+
+	// ø‰√ª URL: http://localhost:8080/lesson01/ex01/6
 	@RequestMapping("/6")
 	public ResponseEntity<Data> entity() {
-		Data data = new Data(); // ?ùºÎ∞? java been
-		data.setId(2);
-		data.setName("ÎØºÏ±Ñ?ôç");
-		
+		Data data = new Data(); // ¿œπ› ¿⁄πŸ bean
+		data.setId(1);
+		data.setName("πŒ√§»´");
+
+		// ≈©∑“ > Network tab ¿¿¥‰∞™ »Æ¿Œ!
 		// return new ResponseEntity<>(data, HttpStatus.OK); // 200 ok
-		return new ResponseEntity<>(data, HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<>(data, HttpStatus.INTERNAL_SERVER_ERROR); // 500 error
 	}
-	
 }

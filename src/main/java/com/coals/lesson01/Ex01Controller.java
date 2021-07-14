@@ -1,5 +1,8 @@
 package com.coals.lesson01;
 
+// ±âº» ÆĞÅ°Áö com.marobiana.ex ¿¡¼­ lesson01·Î º¯°æµÇ¾î 404 ¹ß»ı
+// ¼³Á¤ Å¬·¡½º¿¡¼­ @ComponentScanÀ¸·Î ±âº» ÆĞÅ°Áö¸¦ ´Ù½Ã Àâ¾ÆÁØ´Ù.
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,29 +10,30 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@RequestMapping("/lesson01/ex01") // ë©”ì†Œë“œì— ë¶™ì€ mapping ë³´ë‹¤ ë¨¼ì € ì ìš©
-@Controller // controller spring been
+@RequestMapping("/lesson01/ex01")  // ¸Ş¼Òµå¿¡ ºÙÀº mappingº¸´Ù ¸ÕÀú Àû¿ë
+@Controller
 public class Ex01Controller {
 	
-	// ìš”ì²­ url : http://localhost/lesson01/ex01/1
-	@RequestMapping("/1") // URL ì£¼ì†Œ ë§¤í•‘
-	@ResponseBody // ë¦¬í„´ë˜ëŠ” ê°’ì„ HTML Response bodyë¡œ ë³´ë‚¸ë‹¤
+	// String Ãâ·ÂÇÏ±â
+	// ¿äÃ» URL: http://localhost:8080/lesson01/ex01/1
+	@ResponseBody 			   // ¸®ÅÏµÇ´Â °ªÀ» HTML Response·Î º¸³½´Ù.
+	@RequestMapping("/1")   // ÁÖ¼Ò ¸ÅÇÎ
 	public String printString() {
-		String text = "ì˜ˆì œ 1ë²ˆ <br> ë¬¸ìì—´ì„ response bodyë¡œ ë³´ë‚´ëŠ” ì˜ˆì œ";
+		String text = "¿¹Á¦1¹ø<br>¹®ÀÚ¿­À» response body·Î º¸³»´Â ¿¹Á¦";
 		return text;
 	}
 	
-	// ìš”ì²­ url : http://localhost/lesson01/ex01/2
+	// Map Ãâ·ÂÇÏ±â -> JSON Ãâ·ÂÇÏ±â
+	// ¿äÃ» URL: http://localhost:8080/lesson01/ex01/2
 	@RequestMapping("/2")
 	public @ResponseBody Map<String, Object> printMap() {
 		Map<String, Object> map = new HashMap<>();
 		map.put("apple", 4);
-		map.put("banana", 45);
-		map.put("orange",89);
-		map.put("grape", 111);
+		map.put("banana", 10);
+		map.put("orange", 125);
+		map.put("grape", 67);
 		
-		// mapì„ ë¦¬í„´í•˜ë©´ jsonìœ¼ë¡œ ë‚˜íƒ€ë‚œë‹¤
-		// web starterì— jackson ì´ë¼ëŠ” ë¼ì´ë¸ŒëŸ¬ë¦¬ê°€ í¬í•¨ë˜ì–´ ìˆê¸° ë•Œë¬¸
+		// mapÀ» ¸®ÅÏÇÏ¸é jsonÀ¸·Î ³ªÅ¸³­´Ù. web starter¿¡ jackson ÀÌ¶ó´Â ¶óÀÌºê·¯¸®°¡ Æ÷ÇÔµÇ¾îÀÖ±â ¶§¹®
 		return map;
 	}
 }
