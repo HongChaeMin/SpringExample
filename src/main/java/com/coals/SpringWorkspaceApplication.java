@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
-@MapperScan(basePackages = "com.*")
+@MapperScan(basePackages = "com.coals.*")
 @ComponentScan(basePackages = "com.*")
 @SpringBootApplication
 public class SpringWorkspaceApplication {
