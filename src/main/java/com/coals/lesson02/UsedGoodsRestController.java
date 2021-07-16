@@ -13,7 +13,7 @@ import com.coals.lesson02.model.UsedGoods;
 public class UsedGoodsRestController {
 
 	@Autowired
-	private UsedGoodsBO usedGoodsBO;
+	private UsedGoodsBO usedGoodsBO; // 의존성 주입
 	
 	@RequestMapping("/lesson02/ex01")
 	public List<UsedGoods> ex01() {
