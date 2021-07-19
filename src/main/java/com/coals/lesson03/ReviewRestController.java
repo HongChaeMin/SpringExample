@@ -14,37 +14,36 @@ public class ReviewRestController {
 	@Autowired
 	private ReviewBO reviewBO;
 
-	// ¿äÃ» URL : http://localhost/lesson03/ex01
+	// ï¿½ï¿½Ã» URL : http://localhost/lesson03/ex01
 	@RequestMapping("/lesson03/ex01")
 	public Review printReview(
-			// ÇÊ¼ö ÆÄ¶ó¹ÌÅÍ @RequestParam(value = "id") int id
-			// ÇÊ¼ö ÆÄ¶ó¹ÌÅÍ @RequestParam(value="id", required=true) int id
-			// ºñÇÊ¼ö ÆÄ¶ó¹ÌÅÍ @RequestParam(value = "id", required = false) Integer id
-			// °ªÀÌ ¾øÀ» ¼öµµ ÀÖ±â ¶§¹®¿¡ null ÀúÀåÀ» À§ÇØ Integer·Î ÀúÀå
-			@RequestParam(value="id", defaultValue="1") int id // ºñÇÊ¼ö ÆÄ¶ó¹ÌÅÍ, ±âº»°ª ¼³Á¤ (1)
+			//@RequestParam(value="id") int id // í•„ìˆ˜ íŒŒë¼ë¯¸í„°
+			//@RequestParam(value="id", required=true) int id // í•„ìˆ˜ íŒŒë¼ë¯¸í„°
+			//@RequestParam(value="id", required=false) Integer id // ë¹„í•„ìˆ˜ íŒŒë¼ë¯¸í„°
+			@RequestParam(value="id", defaultValue="1") int id // ë¹„í•„ìˆ˜ íŒŒë¼ë¯¸í„°, ë””í´íŠ¸ê°’ 1
 	) {
 		System.out.println("### id : " + id);
 		return reviewBO.getReview(id);
 	}
 	
-	// ¿äÃ» URL : http://localhost/lesson03/ex02
+	// ï¿½ï¿½Ã» URL : http://localhost/lesson03/ex02
 	@RequestMapping("/lesson03/ex02")
 	public String ex02() {
 		Review review = new Review();
-		review.setStoreName("Ã¤¹Î »ï°ã»ì");
-		review.setMenu("»ï°ãÈ¥¹ä¼¼Æ®");
-		review.setUserName("¸ÀÀÖÀ¸¸éÂ¢´Â°³");
+		review.setStoreName("Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+		review.setMenu("ï¿½ï¿½ï¿½È¥ï¿½ä¼¼Æ®");
+		review.setUserName("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¢ï¿½Â°ï¿½");
 		review.setPoint(5.0);
-		review.setReview("¸Û¸Û¸Ó¾ö¾ö¾î¸Û¸Û¸Û¸Û¸Ó¾ö¾ö¾ö¸Û!!!");
+		review.setReview("ï¿½Û¸Û¸Ó¾ï¿½ï¿½ï¿½ï¿½ï¿½Û¸Û¸Û¸Û¸Ó¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!!");
 		
-		int row = reviewBO.insertReview(review); // insert µÈ row ¼ö¸¦ ¸®ÅÏ ¹Ş´Â´Ù
+		int row = reviewBO.insertReview(review); // insert ëœ row ìˆ˜ë¥¼ ë¦¬í„´ ë°›ëŠ”ë‹¤.
 		
-		return "success row count : " + row; // @ResponseBody·Î ÀÎÇØ String °ª ÀÚÃ¼°¡ responseBody¿¡ ´ã±ä´Ù
+		return "success row count : " + row; // @ResponseBodyï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ String ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ responseBodyï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
 	@RequestMapping("lesson03/ex02/2")
 	public String ex02_2() {
-		int row = reviewBO.insertReviewAsField("µµ¹Ì³ëÇÇÀÚ", "ÄŞºñ³×ÀÌ¼ÇR", "Ã¤¹ÎÈ«", 3.0, "º¯Çß³× º¯Çß¾î");
+		int row = reviewBO.insertReviewAsField("ï¿½ï¿½ï¿½Ì³ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½Şºï¿½ï¿½ï¿½Ì¼ï¿½R", "Ã¤ï¿½ï¿½È«", 3.0, "ï¿½ï¿½ï¿½ß³ï¿½ ï¿½ï¿½ï¿½ß¾ï¿½");
 		
 		return "succes row count : " + row;
 	}
