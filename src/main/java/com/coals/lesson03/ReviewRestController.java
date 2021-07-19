@@ -26,5 +26,26 @@ public class ReviewRestController {
 		System.out.println("### id : " + id);
 		return reviewBO.getReview(id);
 	}
+	
+	// ¿äÃ» URL : http://localhost/lesson03/ex02
+	@RequestMapping("/lesson03/ex02")
+	public String ex02() {
+		Review review = new Review();
+		review.setStoreName("Ã¤¹Î »ï°ã»ì");
+		review.setMenu("»ï°ãÈ¥¹ä¼¼Æ®");
+		review.setUserName("¸ÀÀÖÀ¸¸éÂ¢´Â°³");
+		review.setPoint(5.0);
+		review.setReview("¸Û¸Û¸Ó¾ö¾ö¾î¸Û¸Û¸Û¸Û¸Ó¾ö¾ö¾ö¸Û!!!");
+		
+		int row = reviewBO.insertReview(review); // insert µÈ row ¼ö¸¦ ¸®ÅÏ ¹Þ´Â´Ù
+		
+		return "success row count : " + row; // @ResponseBody·Î ÀÎÇØ String °ª ÀÚÃ¼°¡ responseBody¿¡ ´ã±ä´Ù
+	}
 
+	@RequestMapping("lesson03/ex02/2")
+	public String ex02_2() {
+		int row = reviewBO.insertReviewAsField("µµ¹Ì³ëÇÇÀÚ", "ÄÞºñ³×ÀÌ¼ÇR", "Ã¤¹ÎÈ«", 3.0, "º¯Çß³× º¯Çß¾î");
+		
+		return "succes row count : " + row;
+	}
 }
