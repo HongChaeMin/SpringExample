@@ -67,4 +67,20 @@
 			, NOW()
 		)
 	</insert>
+	
+	<update id="updateReview" parameterType="map">
+		UPDATE `review`
+		SET
+			`review` = #{review}
+		WHERE
+			`id` = #{id}
+	</update>
+	
+	<delete id="deleteReview" parameterType="int">
+		DELETE
+		FROM 
+			`review`
+		WHERE 
+			`id` = #{id}
+	</delete>
 </mapper>

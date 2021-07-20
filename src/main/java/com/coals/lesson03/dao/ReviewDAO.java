@@ -10,7 +10,7 @@ public interface ReviewDAO {
 
 	public Review selectReview(@Param ("id") int id);
 	
-	public int insertReview(Review review); // Review °´Ã¼ÀÇ ³»¿ëÀ» row·Î Ãß°¡
+	public int insertReview(Review review); // Review ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ rowï¿½ï¿½ ï¿½ß°ï¿½
 	
 	public int insertReviewAsField(
 			@Param ("storeName") String storeName
@@ -20,4 +20,10 @@ public interface ReviewDAO {
 			, @Param ("review") String review
 			);
 	
+	public int updateReview(
+			@Param ("id") int id
+			, @Param("review") String review
+			);
+	
+	public int deleteReview(int id);
 }
