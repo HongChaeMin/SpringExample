@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.coals.lesson04.dao.NewStudentDAO">
+
+	<insert id="insertNewStudent"
+		parameterType="com.coals.lesson04.model.NewStudent"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO `new_student`
+		(
+			`name`
+			,`phoneNumber`
+			, `email`
+			, `dreamJob`
+		)
+		VALUES
+		(
+			#{name}
+			, #{phoneNumber}
+			, #{email}
+			, #{dreamJob}
+		)
+	</insert>
+
+	<select id="selectNewStudent" parameterType="int" resultType="com.coals.lesson04.model.NewStudent">
+		SELECT
+			`id`
+			, `name`
+			, `phoneNumber`
+			, `email`
+			, `dreamJob`
+			, `createdAt`
+			, `updatedAt`
+		FROM 
+			`new_student`
+		WHERE
+			`id` = #{id}
+	</select>
+
+</mapper>
