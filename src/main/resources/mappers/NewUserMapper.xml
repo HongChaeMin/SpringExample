@@ -40,5 +40,14 @@
 		ORDER BY `id` DESC
 		LIMIT 1;
 	</select>
+	
+	<select id="existNewUSerByName" resultType="boolean">
+		SELECT 
+			conut(1)
+		FROM
+			`new_user`
+		WHERE
+			`name` = #{name}
+	</select>
 
 </mapper>
